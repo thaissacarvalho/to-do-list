@@ -5,8 +5,7 @@ const Checklist = require("../models/checklist");
 router.get('/', async (req, res) => {
     try {
         let checklists = await Checklist.find({});
-        res.status(200).json(checklists);
-        res.status(200).render('checklists/index', { checklists: checklists });
+        res.status(200).render('checklists', { checklists: checklists });
     } catch (error) {
         res.status(500).render('pages/error', { error: 'Error ao exibir as Listas.' })
     }
@@ -27,7 +26,7 @@ router.post('/', async (req, res) => {
 router.get('/new', async (req, res) => {
     try {
         let checklist = new Checklist()
-        res.status(200).render('checklists/new', { checklist: chechlist })
+        res.status(200).render('checklists/new', { checklist: checklist })
     } catch (error) {
         res.status(500).render("pages/error", { error: 'Erro ao criar checklists' })
     }
