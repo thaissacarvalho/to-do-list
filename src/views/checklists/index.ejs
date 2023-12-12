@@ -4,7 +4,7 @@
     <section class="section">
       <div class="container">
         <div class="columns">
-          
+
           <div class="column is-four-fifths">
             <h1 class="title size-4">Listas de Tarefas</h1>
           </div>
@@ -14,42 +14,39 @@
         </div>
 
 
-        <% checklists.forEach(checklist => { %>
-        <div class="columns is-multiline">
-          <div class="column is-one-quarter">
-            <div class="card has-background-white-ter">
-              <div class="card-content">
-                <p class="subtitle is-size-5">
-                  <%= checklist.name %>
-                </p>
-                <p class="subtitle is-size-6">
-                  <%= checklist.tasks.length %> tarefas
-                </p>
+        <% checklists.forEach(checklist=> { %>
+          <div class="columns is-multiline">
+            <div class="column is-one-quarter">
+              <div class="card has-background-white-ter">
+                <div class="card-content">
+                  <p class="subtitle is-size-5">
+                    <%= checklist.name %>
+                  </p>
+                  <p class="subtitle is-size-6">
+                    <%= checklist.tasks.length %> tarefas
+                  </p>
+                </div>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="/checklists/<%=checklist._id%>">Ver</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="/checklists/<%= checklist._id %>/edit">Editar</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="/checklists/<%= checklist._id %>?_method=delete" class="has-text-danger">Remover</a>
+                    </span>
+                  </p>
+                </footer>
               </div>
-              <footer class="card-footer">
-                <p class="card-footer-item">
-                  <span>
-                    <a href="/checklists/<%= checklist._id %>">Ver</a>
-                  </span>
-                </p>
-                <p class="card-footer-item">
-                  <span>
-                    <a href="/checklists/<%= checklist._id %>/edit">Editar</a>
-                  </span>
-                </p>
-                <p class="card-footer-item">
-                  <span>
-                    <a href="/checklists/<%= checklist._id %>?_method=delete" class="has-text-danger">Remover</a>
-                  </span>
-                </p>
-              </footer>
             </div>
           </div>
-        </div>
-        <% }) %>
-
       </div>
+      <% }) %>
     </section>
-
-
     <%- include('../layouts/footer.ejs') %>
