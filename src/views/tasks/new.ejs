@@ -10,7 +10,6 @@
                       <label class="label">Nome</label>
                       <div class="control">
                         <input class="input" type="text" name="task[name]" placeholder="Tarefa" value="<%= task.name %>">
-
                         <% if(task.error && task.errors.hasOwnProperty('name')) { %>
                             <p class="is-danger help"> <%= task.error.name.message %> </p>
                         <% } %>
